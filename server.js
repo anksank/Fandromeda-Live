@@ -3,23 +3,16 @@ var https = require('https');
 var http = require('http');
 var url = require('url');
 
-// var express = require('express');
-// var cookieParser = require('cookie-parser');
-
 http.createServer(function (req, res) {
     var url_parts = url.parse(req.url, true);
     var query = url_parts.query;
     var page = '';
-    // if (url_parts.path == 'text') {
-    //     page += '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>';
-    // } else {
-    //     page += '<p>Hello World</p>';
-    //     page += '<p><a href="/text">Please, click me</a></p>';
-    // }
+
     res.writeHead(200, {
         'Content-Type': 'text/html'
     });
 
+    var matchId = 2955;
     var oPlayerJson = {
         "Rohit": 258,
         "JP Duminy": 621,
@@ -209,124 +202,79 @@ http.createServer(function (req, res) {
         "ZK Pakteen": 11470
     };
 
-    var oPlayerJson = {
-        "Raina": 264,
-        "Raydu": 816,
-        "Billings": 180,
-        "Dhoni": 243,
-        "Watson": 51,
-        "Jadeja": 255,
-        "Bravo": 567,
-        "Harbhajan": 234,
-        "Tahir": 618,
-        "D Chahar": 864,
-        "Thakur": 1119,
-        "Lynn": 855,
-        "N Rana": 1011,
-        "Uthappa": 1062,
-        "Rinku": 9275,
-        "D Karthik": 870,
-        "A Russel": 549,
-        "Narine": 1107,
-        "Kuldeep": 954,
-        "P Chawla": 1014,
-        "Vinay": 1146,
-        "T Curran": 9243,
+    var oUsers = {
+        "BPT450": {
+            "aPlayers": [126, 882, 261, 1056, 11239, 504, 960, 894, 843, 1107, 543],
+            "bowlStar": 126,
+            "batStar": 261,
+            "score": 1751
+        },
+        "100mya": {
+            "aPlayers": [114, 816, 939, 764, 42, 144, 519, 543, 549, 243, 1119],
+            "bowlStar": 114,
+            "batStar": 519,
+            "score": 1677
+        },
+        "adwaitnad": {
+            "aPlayers": [11239, 870, 11474, 228, 1062, 261, 1083, 1107, 144, 240, 939],
+            "bowlStar": 11474,
+            "batStar": 261,
+            "score": 1611
+        },
+        "neha_": {
+            "aPlayers": [1083, 549, 984, 870, 261, 42, 228, 1056, 918, 11474, 126],
+            "batStar": 261,
+            "bowlStar": 11474,
+            "score": 1530
+        },
+        "strawhat_hermit": {
+            "aPlayers": [939, 11474, 42, 240, 594, 267, 954, 6625, 1107, 519, 870],
+            "bowlStar": 11474,
+            "batStar": 519,
+            "score": 1497
+        },
+        "Chonkpur_Cheetay": {
+            "aPlayers": [519, 1080, 258, 764, 11474, 855, 549, 1056, 42, 8577, 504],
+            "batStar": 764,
+            "bowlStar": 42,
+            "score": 1384
+        },
+        "adbhut": {
+            "aPlayers": [764, 11474, 42, 894, 144, 882, 939, 234, 855, 81, 54],
+            "bowlStar": 42,
+            "batStar": 894,
+            "score": 1372
+        },
+        "Aadii4fan": {
+            "aPlayers": [42, 11474, 939, 258, 1125, 8562, 261, 549, 8058, 1056, 1092],
+            "batStar": 1125,
+            "bowlStar": 1092,
+            "score": 221
+        }
     };
 
-
-    var aAnkit = {
-        aPlayers:  [54, 81, 567, 855, 243, 234, 939, 882, 8577, 8364, 144],
-        batStar: 8577,
-        bowlStar: 144
-    };
-    var aNitin = {
-        aPlayers:  [504, 8577, 1080, 843, 9328, 42, 1056, 237, 549, 855, 264],
-        bowlStar: 8577,
-        batStar: 1056
-    };
-    var aArun = {
-        aPlayers:  [873, 870, 144, 882, 54, 519, 8577, 1107, 918, 6625, 954],
-        batStar: 54,
-        bowlStar: 918
-    };
-    var aSaumya = {
-        aPlayers:  [918, 1119, 816, 567, 243, 549, 543, 1083, 519, 144, 42],
-        bowlStar: 918,
-        batStar: 1083
-    };
-
-    var aBibhu = {
-        aPlayers:  [543, 1107, 843, 894, 960, 504, 11239, 1056, 261, 144, 882],
-        bowlStar: 543,
-        batStar: 882
-    };
-    var aAdwait = {
-        aPlayers:  [864, 567, 870, 11474, 228, 1062, 843, 261, 1083, 1107, 144],
-        bowlStar: 567,
-        batStar: 870
-    };
-    var aNeha = {
-        aPlayers:  [1083, 549, 984, 237, 870, 843, 261, 42, 228, 1056, 918],
-        batStar: 1056,
-        bowlStar: 918
-    };
-
-
-    // URL to get team players
-    // https://fandromeda.com/v2/champ/classic_squad?tournament_id=324&edit_squad_page=0&user=338320
-
-    //     var oPlayers = {};
-    // function httpGet(theUrl) {
-    //     var xmlHttp = new XMLHttpRequest();
-    //     xmlHttp.open("GET", theUrl, false); // false for synchronous request
-    //     xmlHttp.send(null);
-    //     var json = JSON.parse(xmlHttp.responseText);
-    // 	oPlayers.aPlayers = [];
-    //     for (var i = 0; i < json.players.length; i++){
-    //     	oPlayers.aPlayers.push(json.players[i].player_id);
-    // 		if (json.players[i].batting_power == "T") oPlayers.batStar = json.players[i].player_id;
-    // 		if (json.players[i].bowling_power == "T") oPlayers.bowlStar = json.players[i].player_id;
-    // 	}
-    // 	return oPlayers;
-    // }
-
-    // httpGet("https://fandromeda.com/v2/champ/classic_squad?tournament_id=324&edit_squad_page=0&user=644085");
-
-
-    var sabLog = [{
-        "Ankit": aAnkit
-    }, {
-        "Nitin": aNitin
-    }, {
-        "Arun": aArun
-    }, {
-        "Saumya": aSaumya
-    }, {
-        "Bibhu": aBibhu
-    }, {
-        "Adwait": aAdwait
-    }, {
-        "Neha": aNeha
-    }];
-
-    var finalCall = function (urlNew, oUserJson) {
+    var finalCall = function (urlNew) {
         request(urlNew, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 // console.log(body);
-                for (var q = 0; q < sabLog.length; q++) {
-                    var aPlayers = sabLog[q][Object.keys(sabLog[q])[0]];
+                var finalScores = [];
+                for (var key in oUsers) {
+                    var aPlayers = oUsers[key].aPlayers;
                     var json = JSON.parse(body);
 
                     var sum = 0;
                     for (var i = 0; i < json.pps.length; i++) {
 
-                        for (var j = 0; j < aPlayers.aPlayers.length; j++) {
-                            if (aPlayers.aPlayers[j] == json.pps[i].player_id) {
+                        for (var j = 0; j < aPlayers.length; j++) {
+                            if (aPlayers[j] == json.pps[i].player_id) {
                                 var thisPlayer = 0;
-                                if (aPlayers.batStar == json.pps[i].player_id) thisPlayer = json.pps[i].batting_pts;
-                                else if (aPlayers.bowlStar == json.pps[i].player_id) {
+                                // console.log(oUsers[key].batStar, json.pps[i].player_id);
+                                if (oUsers[key].batStar == json.pps[i].player_id) {
+                                    thisPlayer = json.pps[i].batting_pts;
+                                    // page += " - " + thisPlayer;
+                                } else if (oUsers[key].bowlStar == json.pps[i].player_id) {
                                     thisPlayer = json.pps[i].bowling_pts;
+                                    // page += " - " + thisPlayer;
                                 }
 
                                 thisPlayer = thisPlayer + (json.pps[i].bowling_pts + json.pps[i].batting_pts + json.pps[i].bonus_pts + json.pps[i].fielding_pts);
@@ -334,60 +282,33 @@ http.createServer(function (req, res) {
                             }
                         }
                     }
-                    page += '<p>' + Object.keys(sabLog[q])[0] + ": " + sum + '</p>';
+                    finalScores.push({
+                        "user": key,
+                        "score": sum,
+                        "totalScore": oUsers[key].score + sum
+                    });
                 }
+
+                function compare(a, b) {
+                    if (a.totalScore < b.totalScore)
+                        return 1;
+                    if (a.totalScore > b.totalScore)
+                        return -1;
+                    return 0;
+                }
+                finalScores.sort(compare);
+                for (var i = 0; i < finalScores.length; i++) {
+                    page += '<p>' + finalScores[i].user + ": " + finalScores[i].score + ' ( TOTAL: ' + finalScores[i].totalScore + ' )</p>';
+                }
+                
             }
             res.end(page);
         });
     }
 
-    // URL to get the list of players and there IDs
-    var playerIdUrl = "https://fandromeda.com/v2/champ_gang/get_gang_standings?tournament_id=324&league_id=28260&page=0";
 
-    const options = {
-        hostname: 'www.fandromeda.com',
-        path: '/v2/champ_gang/get_gang_standings?tournament_id=324&league_id=28260&page=0',
-        headers: {
-            'Cookie': "t_id=54ae907c-c50d-4c19-b71e-bded1d11ecd2; _ga=GA1.2.641504263.1523369929; _gid=GA1.2.1799373421.1523369929"
-        }
-    };
-    https.get(options, (res) => {
-
-        res.on('data', (d) => {
-            // process.stdout.write(d);
-            // console.log(d);
-            var data = d;
-            console.log(d);
-            var oUserJson = {};
-            // for (var i = 0; i < data.members.length; i++) {
-            //     oUserJson[data.members[i]] = data.members[i].user_id;
-            // }
-            var oUserJson = {
-                "BPT450": 338320,
-                "100mya": 659148,
-                "adwaitnad": 337868,
-                "neha_": 644085,
-                "strawhat_hermit": 644135,
-                "Chonkpur_Cheetay": 45993,
-                "adbhut": 37493,
-                "Aadii4fan": 499326
-            };
-            var urlNew = "https://s3-us-west-2.amazonaws.com/fanlive/h2h-live/event_pp_2954.json?v=" + (new Date()).getTime();
-            finalCall(urlNew, oUserJson);
-        });
-
-    }).on('error', (e) => {
-        console.error(e);
-    });
-
-    // request(playerIdUrl, function (error, response, body) {
-    //     if (!error && response.statusCode == 200) {
-    //         // console.log(body);
-
-    //     }
-    //     // res.end(page);
-
-    // });
+    var urlNew = "https://s3-us-west-2.amazonaws.com/fanlive/h2h-live/event_pp_" + matchId + ".json?v=" + (new Date()).getTime();
+    finalCall(urlNew);
 
 }).listen(1337, '127.0.0.1');
 

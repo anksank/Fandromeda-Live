@@ -11,5 +11,8 @@
     "cookie-parser": "1.4.0"
   },
   "author": "Ankit .",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "request": "^2.85.0"
+  }
 }
