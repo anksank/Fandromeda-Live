@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
         'Content-Type': 'text/html'
     });
 
-    var matchId = 2955;
+    var matchId = 2958;
     var oPlayerJson = {
         "Rohit": 258,
         "JP Duminy": 621,
@@ -204,52 +204,52 @@ http.createServer(function (req, res) {
 
     var oUsers = {
         "BPT450": {
-            "aPlayers": [126, 882, 261, 1056, 11239, 504, 960, 894, 843, 1107, 543],
-            "bowlStar": 126,
+            "aPlayers": [1092, 549, 42, 126, 261, 1056, 11239, 960, 1107, 267, 1161],
+            "bowlStar": 42,
             "batStar": 261,
-            "score": 1751
+            "score": 2260
         },
         "100mya": {
-            "aPlayers": [114, 816, 939, 764, 42, 144, 519, 543, 549, 243, 1119],
-            "bowlStar": 114,
-            "batStar": 519,
-            "score": 1677
+            "aPlayers": [1107, 261, 5487, 11239, 846, 549, 42, 939, 816, 114, 1056],
+            "bowlStar": 1107,
+            "batStar": 261,
+            "score": 2376
         },
         "adwaitnad": {
-            "aPlayers": [11239, 870, 11474, 228, 1062, 261, 1083, 1107, 144, 240, 939],
-            "bowlStar": 11474,
+            "aPlayers": [42, 11458, 939, 144, 1107, 261, 1062, 228, 11474, 11239, 957],
+            "bowlStar": 42,
             "batStar": 261,
-            "score": 1611
+            "score": 2569
         },
         "neha_": {
-            "aPlayers": [1083, 549, 984, 870, 261, 42, 228, 1056, 918, 11474, 126],
+            "aPlayers": [1107, 11239, 594, 126, 11474, 1056, 42, 261, 870, 549, 1083],
+            "bowlStar": 1107,
             "batStar": 261,
-            "bowlStar": 11474,
-            "score": 1530
+            "score": 2495
         },
         "strawhat_hermit": {
-            "aPlayers": [939, 11474, 42, 240, 594, 267, 954, 6625, 1107, 519, 870],
-            "bowlStar": 11474,
-            "batStar": 519,
-            "score": 1497
+            "aPlayers": [519, 939, 11474, 42, 240, 954, 6625, 1107, 882, 870, 261],
+            "batStar": 1107,
+            "bowlStar": 1107,
+            "score": 2585
         },
         "Chonkpur_Cheetay": {
-            "aPlayers": [519, 1080, 258, 764, 11474, 855, 549, 1056, 42, 8577, 504],
-            "batStar": 764,
-            "bowlStar": 42,
-            "score": 1384
+            "aPlayers": [1092, 1107, 9293, 267, 846, 42, 1056, 549, 764, 939, 60],
+            "batStar": 1107,
+            "bowlStar": 1107,
+            "score": 2043
         },
         "adbhut": {
-            "aPlayers": [764, 11474, 42, 894, 144, 882, 939, 234, 855, 81, 54],
+            "aPlayers": [867, 261, 1140, 764, 11474, 42, 144, 882, 855, 267, 870],
             "bowlStar": 42,
-            "batStar": 894,
-            "score": 1372
+            "batStar": 870,
+            "score": 2246
         },
         "Aadii4fan": {
-            "aPlayers": [42, 11474, 939, 258, 1125, 8562, 261, 549, 8058, 1056, 1092],
-            "batStar": 1125,
-            "bowlStar": 1092,
-            "score": 221
+            "aPlayers": [594, 11239, 267, 1092, 1056, 8058, 8562, 1125, 258, 939, 11474],
+            "bowlStar": 11239,
+            "batStar": 267,
+            "score": 1124
         }
     };
 
