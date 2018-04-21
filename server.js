@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
         'Content-Type': 'text/html'
     });
 
-    var matchId = 2963;
+    var matchId = 2964;
     var oPlayerJson = {
         "3": "M Nabi",
         "42": "Rashid Khan",
@@ -202,7 +202,7 @@ http.createServer(function (req, res) {
         "11509": "KM Asif"
     };
 
-    var oUsers = {"BPT450":{"aPlayers":[144,1110,1062,894,1161,1107,960,11239,261,549,1092],"batStar":1062,"bowlStar":1107,"score":4013},"100mya":{"aPlayers":[7827,954,228,1056,114,939,549,5487,1107,267,1125],"batStar":1107,"bowlStar":1107,"score":4747},"adwaitnad":{"aPlayers":[165,1110,1011,11458,939,1107,1062,228,11474,11239,957],"batStar":1110,"bowlStar":1107,"score":4425},"neha_":{"aPlayers":[114,1107,1140,549,261,1056,11474,957,267,1110,1011],"bowlStar":1107,"batStar":1110,"score":4489},"strawhat_hermit":{"aPlayers":[144,1011,240,855,228,870,1107,6625,954,11474,549],"batStar":855,"bowlStar":954,"score":4312},"Chonkpur_Cheetay":{"aPlayers":[918,144,1062,957,1110,764,549,1107,1092,1011,11474],"batStar":1110,"bowlStar":1107,"score":4461},"adbhut":{"aPlayers":[228,1140,1110,870,855,144,11474,261,11239,1107,594],"batStar":228,"bowlStar":1107,"score":3744},"Aadii4fan":{"aPlayers":[165,258,549,1107,855,7827,267,594,11474,11458,1110],"batStar":549,"bowlStar":1107,"score":3241}};
+    var oUsers = {"BPT450":{"aPlayers":[957,843,1092,549,261,11239,960,1107,894,1062,1110],"batStar":957,"bowlStar":843,"score":4277},"100mya":{"aPlayers":[1092,843,957,1125,267,1107,549,939,228,954,7827],"bowlStar":843,"batStar":957,"score":5007},"adwaitnad":{"aPlayers":[261,42,957,11239,11474,228,1062,1107,1011,1110,165],"bowlStar":42,"batStar":957,"score":4881},"neha_":{"aPlayers":[1107,1140,261,1056,11474,957,267,1110,1011,252,126],"batStar":261,"bowlStar":252,"score":4723},"strawhat_hermit":{"aPlayers":[261,936,42,11474,954,6625,1107,870,228,1011,144],"batStar":261,"bowlStar":42,"score":4843},"Chonkpur_Cheetay":{"aPlayers":[11239,918,144,1062,957,1110,549,1107,1092,1011,936],"bowlStar":1092,"batStar":936,"score":4819},"adbhut":{"aPlayers":[261,252,126,228,1110,870,855,11474,11239,1107,594],"batStar":261,"bowlStar":252,"score":4053},"Aadii4fan":{"aPlayers":[936,567,1092,261,1110,11458,594,267,7827,1107,549],"bowlStar":1092,"batStar":261,"score":3406}};
 
     var finalCall = function (urlNew) {
         request(urlNew, function (error, response, body) {
@@ -257,8 +257,8 @@ http.createServer(function (req, res) {
                 for (var i = 0; i < finalScores.length; i++) {
                     page += '<p>' + finalScores[i].user + ": " + finalScores[i].score + 
                             ' ( TOTAL: <span style="font-weight:bold;">' + finalScores[i].totalScore + '</span> )</p>'; 
-                    page += '<p>Batting Star: ' + finalScores[i].batStar + ', Bowling Star: ' +
-                            finalScores[i].bowlStar + ' Players: ' + finalScores[i].players + '</p><br>';
+                    // page += '<p>Batting Star: ' + finalScores[i].batStar + ', Bowling Star: ' +
+                    //         finalScores[i].bowlStar + ' Players: ' + finalScores[i].players + '</p><br>';
                 }
                 
             }

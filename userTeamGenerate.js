@@ -1,19 +1,40 @@
 var oUsers = {};
 
 var oUserJson = {
-    "BPT450": 338320,
-    "100mya": 659148,
-    "adwaitnad": 337868,
-    "neha_": 644085,
-    "strawhat_hermit": 644135,
-    "Chonkpur_Cheetay": 45993,
-    "adbhut": 37493,
-    "Aadii4fan": 499326
+    "BPT450": 338320
+    // "100mya": 659148,
+    // "adwaitnad": 337868,
+    // "neha_": 644085,
+    // "strawhat_hermit": 644135,
+    // "Chonkpur_Cheetay": 45993,
+    // "adbhut": 37493,
+    // "Aadii4fan": 499326
 };
 
 function httpGet(theUrl, key) {
+    var myVariable = window.opener.thisIsAnObject;
+    console.log(myVariable);
     var xmlHttp = new XMLHttpRequest();
+    // window.open("https://fandromeda.com/event");
+    // window.location.reload();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
+
+    // $.ajax({
+    //     url: theUrl,
+    //     type: "GET",
+    //     headers : {
+    //         "X-Requested-With": "XMLHttpRequest"
+    //     },
+    //     complete: function(data) {
+    //         debugger;
+    //         console.log("nothing");
+    //     }
+
+    // });
+
+
+
+    // console.log(document.referrer);
     xmlHttp.send(null);
     var json = JSON.parse(xmlHttp.responseText);
     var oPlayers = {};
@@ -30,5 +51,5 @@ function httpGet(theUrl, key) {
 }
 
 for (var key in oUserJson) {
-    httpGet("https://fandromeda.com/v2/champ/classic_squad?tournament_id=324&edit_squad_page=0&user=" + oUserJson[key], key);
+    document.cookie = httpGet("https://fandromeda.com/v2/champ/classic_squad?tournament_id=324&edit_squad_page=0&user=" + oUserJson[key], key);
 }
