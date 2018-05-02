@@ -282,7 +282,7 @@ for (var i = 0; i < finalScores.length; i++) {
     text += finalScores[i].user + ": " + finalScores[i].score +
         ' ( TOTAL: ' + finalScores[i].totalScore + ' )\n';
 	if (i > 0) {
-		text += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points ahead of position " + i + "\n";
+		text += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points behind position " + i + "\n";
     }
     text += 'Batting Star: ' + finalScores[i].batStar + ', Bowling Star: ' +
         finalScores[i].bowlStar + ' Players: ' + finalScores[i].players + '\n\n';
