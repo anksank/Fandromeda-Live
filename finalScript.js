@@ -1,4 +1,4 @@
-var matchId = prompt("Please enter the IPL Match Number");
+var matchId = prompt("Enter the IPL Match Number");
 matchId = parseInt(matchId) + 2948;
 var oPlayerJson = {
     "171": "L Plunkett",
@@ -253,7 +253,7 @@ for (var key in oUsers) {
                     thisPlayer = json.pps[i].batting_pts;
                 } else if (oUsers[key].bowlStar == json.pps[i].player_id) {
                     thisPlayer = json.pps[i].bowling_pts;
-                }
+                } else ;
                 aPlayersPlaying.push(oPlayerJson[json.pps[i].player_id]);
                 thisPlayer = thisPlayer + (json.pps[i].bowling_pts + json.pps[i].batting_pts + json.pps[i].bonus_pts + json.pps[i].fielding_pts);
                 aPlayerScores.push(thisPlayer);
@@ -268,7 +268,6 @@ for (var key in oUsers) {
         "totalScore": oUsers[key].score + sum,
         "batStar": oPlayerJson[oUsers[key].batStar],
         "bowlStar": oPlayerJson[oUsers[key].bowlStar],
-        "players": aPlayersPlaying.join(", "),
         "aPlayerScores": aPlayerScores,
         "aPlayersPlaying": aPlayersPlaying
     });
@@ -277,9 +276,7 @@ for (var key in oUsers) {
 function compare(a, b) {
     if (a.totalScore < b.totalScore)
         return 1;
-    if (a.totalScore > b.totalScore)
-        return -1;
-    return 0;
+    return -1;
 }
 var newText = "";
 finalScores.sort(compare);
