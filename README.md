@@ -4,7 +4,7 @@ Just copy the content of finalScript.js and run it in the console of the Fandrom
 
 The APIs work even if scores are getting updated on the Website.
 
-You would need to make changes to the variable oUserJson, to add the users of your own gang. The IDs can be found from the Div elements of the HTML page.
+You would need to make changes to the variable oUserJson, to add the users of your own gang. The IDs can be found from the div elements of the HTML page.
 
 ```javascript
 var oUserJson = {
