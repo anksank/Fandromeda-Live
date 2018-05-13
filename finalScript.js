@@ -243,6 +243,7 @@ for (var key in oUsers) {
 
     var sum = 0;
     var aPlayersPlaying = [];
+    var aPlayerScores = [];
     for (var i = 0; i < json.pps.length; i++) {
 
         for (var j = 0; j < aPlayers.length; j++) {
@@ -255,6 +256,7 @@ for (var key in oUsers) {
                 }
                 aPlayersPlaying.push(oPlayerJson[json.pps[i].player_id]);
                 thisPlayer = thisPlayer + (json.pps[i].bowling_pts + json.pps[i].batting_pts + json.pps[i].bonus_pts + json.pps[i].fielding_pts);
+                aPlayerScores.push(thisPlayer);
                 sum = sum + thisPlayer;
             }
         }
@@ -266,7 +268,9 @@ for (var key in oUsers) {
         "totalScore": oUsers[key].score + sum,
         "batStar": oPlayerJson[oUsers[key].batStar],
         "bowlStar": oPlayerJson[oUsers[key].bowlStar],
-        "players": aPlayersPlaying.join(", ")
+        "players": aPlayersPlaying.join(", "),
+        "aPlayerScores": aPlayerScores,
+        "aPlayersPlaying": aPlayersPlaying
     });
 }
 
@@ -277,16 +281,28 @@ function compare(a, b) {
         return -1;
     return 0;
 }
-var text = "";
+var newText = "";
 finalScores.sort(compare);
 for (var i = 0; i < finalScores.length; i++) {
-    text += finalScores[i].user + ": " + finalScores[i].score +
-        ' ( TOTAL: ' + finalScores[i].totalScore + ' )\n';
-	if (i > 0) {
-		text += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points behind position " + i + "\n";
+
+    newText += finalScores[i].user + ": " + finalScores[i].score +
+        ' (' + finalScores[i].totalScore + ')\n';
+
+    if (i > 0) {
+        newText += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points behind position " + i + "\n";
     }
-    text += 'Batting Star: ' + finalScores[i].batStar + ', Bowling Star: ' +
-        finalScores[i].bowlStar + ' Players: ' + finalScores[i].players + '\n\n';
+    for (var j = 0; j < finalScores[i].aPlayersPlaying.length; j++) {
+        var temp = finalScores[i].aPlayersPlaying[j];
+        if (finalScores[i].batStar == finalScores[i].aPlayersPlaying[j]) {
+            temp = finalScores[i].aPlayersPlaying[j] + " (Bat): ";
+        } else if (finalScores[i].bowlStar == finalScores[i].aPlayersPlaying[j]) {
+            temp = finalScores[i].aPlayersPlaying[j] + " (Bowl): ";
+        } else {
+            temp = finalScores[i].aPlayersPlaying[j] + ": ";
+        }
+        newText += "\t" + (j + 1) + ") " + temp + finalScores[i].aPlayerScores[j] + "\n";
+    }
+    newText += "\n";
 }
 
-copy(text);
+copy(newText);
