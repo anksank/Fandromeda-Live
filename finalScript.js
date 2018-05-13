@@ -286,7 +286,9 @@ for (var i = 0; i < finalScores.length; i++) {
         ' (' + finalScores[i].totalScore + ')\n';
 
     if (i > 0) {
-        newText += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points behind position " + i + "\n";
+        newText += (finalScores[i-1].totalScore - finalScores[i].totalScore) + " points behind position " + i;
+        if (i > 1) newText += " and " + (finalScores[0].totalScore - finalScores[i].totalScore) + " points behind position 1";
+        newText += "\n";
     }
     for (var j = 0; j < finalScores[i].aPlayersPlaying.length; j++) {
         var temp = finalScores[i].aPlayersPlaying[j];
