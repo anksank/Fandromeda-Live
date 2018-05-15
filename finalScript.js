@@ -250,10 +250,11 @@ for (var key in oUsers) {
             if (aPlayers[j] == json.pps[i].player_id) {
                 var thisPlayer = 0;
                 if (oUsers[key].batStar == json.pps[i].player_id) {
-                    thisPlayer = json.pps[i].batting_pts;
-                } else if (oUsers[key].bowlStar == json.pps[i].player_id) {
-                    thisPlayer = json.pps[i].bowling_pts;
-                } else ;
+                    thisPlayer += json.pps[i].batting_pts;
+                } 
+                if (oUsers[key].bowlStar == json.pps[i].player_id) {
+                    thisPlayer += json.pps[i].bowling_pts;
+                }
                 aPlayersPlaying.push(oPlayerJson[json.pps[i].player_id]);
                 thisPlayer = thisPlayer + (json.pps[i].bowling_pts + json.pps[i].batting_pts + json.pps[i].bonus_pts + json.pps[i].fielding_pts);
                 aPlayerScores.push(thisPlayer);
