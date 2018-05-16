@@ -293,12 +293,14 @@ for (var i = 0; i < finalScores.length; i++) {
     }
     for (var j = 0; j < finalScores[i].aPlayersPlaying.length; j++) {
         var temp = finalScores[i].aPlayersPlaying[j];
-        if (finalScores[i].batStar == finalScores[i].aPlayersPlaying[j]) {
-            temp = finalScores[i].aPlayersPlaying[j] + " (Bat): ";
+        if (finalScores[i].batStar == finalScores[i].aPlayersPlaying[j] && finalScores[i].bowlStar == finalScores[i].aPlayersPlaying[j]) {
+            temp += " (Bat & Bowl): ";
+        } else if (finalScores[i].batStar == finalScores[i].aPlayersPlaying[j]) {
+            temp += " (Bat): ";
         } else if (finalScores[i].bowlStar == finalScores[i].aPlayersPlaying[j]) {
-            temp = finalScores[i].aPlayersPlaying[j] + " (Bowl): ";
+            temp += " (Bowl): ";
         } else {
-            temp = finalScores[i].aPlayersPlaying[j] + ": ";
+            temp += ": ";
         }
         newText += "\t" + (j + 1) + ") " + temp + finalScores[i].aPlayerScores[j] + "\n";
     }
