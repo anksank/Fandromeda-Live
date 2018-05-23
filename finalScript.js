@@ -187,7 +187,8 @@ var oPlayerJson = {
     "11482": "Mohsin Khan",
     "11483": "Mehdi",
     "11484": "Kshitiz",
-    "11509": "KM Asif"
+    "11509": "KM Asif",
+    "11562": "P Krishna"
 };
 
 var oUsers = {};
